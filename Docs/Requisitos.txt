@@ -1,0 +1,28 @@
+[7:30 PM, 1/17/2022] João Facef:
+
+ Crie uma aplicação onde existe dois tipo de usuário (Admin, Simples)
+[7:31 PM, 1/17/2022] João Facef: O usuário vai poder se cadastrar na plataforma
+[7:31 PM, 1/17/2022] João Facef: Mas deve ativar a conta para conseguir usa-la
+[7:31 PM, 1/17/2022] João Facef: Será enviado um email para o usuário q acabou de fazer o cadastro para poder ativar a conta
+[7:32 PM, 1/17/2022] João Facef: Ele deve conseguir recuperar a senha através do email
+[7:32 PM, 1/17/2022] João Facef: Onde será enviado um código de confirmação
+[7:32 PM, 1/17/2022] João Facef: O usuário administrador é responsável por cadastrar, editar e deletar um produto da plataforma
+[7:33 PM, 1/17/2022] João Facef: O produto deve pertencer a uma categoria
+[7:33 PM, 1/17/2022] João Facef: E o fornecedor
+[7:34 PM, 1/17/2022] João Facef: O usuário simples é capaz apenas de visualizar os produtos
+[7:34 PM, 1/17/2022] João Facef: E também pode acrescentar dentro de um carrinho de compra
+[7:34 PM, 1/17/2022] João Facef: E por fim solicitar uma compra
+[7:35 PM, 1/17/2022] João Facef: O administrador consegue visualizar quais os pedidos q estão em aberto feito pelo usuário comum
+[7:35 PM, 1/17/2022] João Facef: Dicas:
+[7:35 PM, 1/17/2022] João Facef: Modele no banco como estão os relacionamento
+[7:36 PM, 1/17/2022] João Facef: Use o mailtrap para envio de email pq ele é bem mais fácil e de graça
+[7:36 PM, 1/17/2022] João Facef: Tirando a rota de cadastro, login e recuperar senha
+[7:37 PM, 1/17/2022] João Facef: Todas precisão de ser autenticada com o token
+[7:37 PM, 1/17/2022] João Facef: O spring security vai facilitar as authorities do usuário para quem deve ou não acessar a rota
+[7:38 PM, 1/17/2022] João Facef: Tenta organizar o projeto de forma simples para vc não se perder
+[7:38 PM, 1/17/2022] João Facef: Controller
+[7:38 PM, 1/17/2022] João Facef: Service
+[7:38 PM, 1/17/2022] João Facef: Config
+[7:38 PM, 1/17/2022] João Facef: Repository
+[7:39 PM, 1/17/2022] João Facef: É importante padronizar o retorno dos erros
+[7:40 PM, 1/17/2022] João Facef: Com a anotação @ControllerAdvice é possível criar um tipo de interceptors de exceções para padronizar o objeto e o q será mostrado de erro para o cliente
