@@ -3,10 +3,7 @@ package desafio.desafio.Models;
 import lombok.AllArgsConstructor;
 
 import javax.naming.Name;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Table(name = "Provider")
@@ -16,6 +13,7 @@ public class Provider implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer provider_id;
+    private Integer providerId;
+    @Column(name="name")
     private String name;
 }

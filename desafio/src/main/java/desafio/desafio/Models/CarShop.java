@@ -2,10 +2,7 @@ package desafio.desafio.Models;
 
 import lombok.AllArgsConstructor;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @AllArgsConstructor
@@ -15,7 +12,9 @@ public class CarShop implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer commom_id;
-    private Float TotalValue;
+    private Integer comomId;
+    @Column(name="totalValues")
+    private Float totalValue;
+    @Column(name="pay")
     private Boolean pay;
 }

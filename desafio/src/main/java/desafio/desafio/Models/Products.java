@@ -2,10 +2,7 @@ package desafio.desafio.Models;
 
 import lombok.AllArgsConstructor;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -16,11 +13,19 @@ public class Products implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer product_id;
-    private String Color, Name;
-    private Date add_date;
-    private Float Price;
-    private Admin admin_id;
-    private Category category_id;
-    private Provider provider_id;
+    private Integer productId;
+    @Column(name="color")
+    private String color;
+    @Column(name="name")
+    private String name;
+    @Column(name="addDate")
+    private Date addDate;
+    @Column(name="price")
+    private Float price;
+    @Column(name="adminId")
+    private Admin adminId;
+    @Column(name="categoryId")
+    private Category categoryId;
+    @Column(name="providerId")
+    private Provider providerId;
 }

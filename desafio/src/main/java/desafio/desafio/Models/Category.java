@@ -2,10 +2,7 @@ package desafio.desafio.Models;
 
 import lombok.AllArgsConstructor;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Table(name = "Category")
@@ -15,7 +12,9 @@ public class Category implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer category_id;
+    private Integer categoryId;
+    @Column(name = "name")
     private String name;
+    @Column(name = "description")
     private String Description;
 }
