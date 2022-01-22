@@ -1,11 +1,13 @@
 package desafio.desafio.Models;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
+@Data
 @AllArgsConstructor
 @Entity
 @NoArgsConstructor
@@ -15,7 +17,7 @@ public class CarShop implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long comomId;
+    private Long carShopId;
     @Column(name="totalValues")
     private Float totalValue;
     @Column(name="pay")

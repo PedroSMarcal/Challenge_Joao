@@ -1,12 +1,14 @@
 package desafio.desafio.Models;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
+@Data
 @Table(name = "Products")
 @AllArgsConstructor
 @Entity
