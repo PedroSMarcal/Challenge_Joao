@@ -22,6 +22,10 @@ public class ProductsService {
         return productsRepository.findAll();
     }
 
+    public List<Products> findByName(String name){
+        return productsRepository.findByName(name);
+    }
+
     public Products findById(Long id){
         return productsRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Commom User not Found"));

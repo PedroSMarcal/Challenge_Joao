@@ -44,4 +44,8 @@ public class AdminService {
         admin.setId(savedAdmin.getId());
     }
 
+    public List<Admin> findByName(String name){
+        return adminRepository.findByName(name);
+    }
+
 }

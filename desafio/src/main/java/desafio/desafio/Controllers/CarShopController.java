@@ -20,8 +20,13 @@ public class CarShopController {
     private CarShopService carShopService;
 
     @GetMapping
-    public ResponseEntity<List<CarShopService>> listAll(){
+    public ResponseEntity<List<CarShop>> listAll(){
         return new ResponseEntity(carShopService.listAll(), HttpStatus.OK);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<CarShop>> findByName(@RequestParam String name){
+        return ResponseEntity.ok(carShopService.findByName(name));
     }
 
     @GetMapping(path = "/{id}")

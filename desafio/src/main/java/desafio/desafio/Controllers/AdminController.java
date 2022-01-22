@@ -30,6 +30,11 @@ public class AdminController {
         return ResponseEntity.ok(adminService.findById(id));
     }
 
+    @GetMapping(path = "/")
+    public ResponseEntity<List<Admin>> FindByName(@RequestParam(required = false) String name){
+        return ResponseEntity.ok(adminService.findByName(name));
+    }
+
     @PostMapping
     public ResponseEntity<Admin> addAdmin(@RequestBody AdminPostRequestBody adminPostRequestBody){
         return new ResponseEntity<>(adminService.addAdmin(adminPostRequestBody), HttpStatus.CREATED);

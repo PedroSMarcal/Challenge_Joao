@@ -21,6 +21,10 @@ public class CategoryService {
         return categoryRepository.findAll();
     }
 
+    public List<Category> findByName(String name){
+        return categoryRepository.findByName(name);
+    };
+
     public Category findById(Long id){
         return categoryRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Category not Found"));

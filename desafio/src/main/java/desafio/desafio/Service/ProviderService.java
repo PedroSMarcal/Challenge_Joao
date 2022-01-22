@@ -21,6 +21,10 @@ public class ProviderService {
         return providerRepository.findAll();
     }
 
+    public List<Provider> findByName(String name){
+        return providerRepository.findByName(name);
+    }
+
     public Provider findById(Long id){
         return providerRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Provider not Found"));

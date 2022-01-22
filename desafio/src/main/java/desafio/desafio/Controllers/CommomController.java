@@ -24,6 +24,11 @@ public class CommomController {
         return new ResponseEntity(commomService.listAll(), HttpStatus.OK);
     }
 
+    @GetMapping
+    public ResponseEntity<List<Commom>> findById(@RequestParam String name){
+        return ResponseEntity.ok(commomService.findByName(name));
+    }
+
     @GetMapping(path = "/{id}")
     public ResponseEntity<Commom> FindById(@PathVariable Long id){
         return ResponseEntity.ok(commomService.findById(id));

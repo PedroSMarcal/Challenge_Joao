@@ -21,6 +21,10 @@ public class CommomService {
         return commomRepository.findAll();
     }
 
+    public List<Commom> findByName(String name){
+        return commomRepository.findByName(name);
+    };
+
     public Commom findById(Long id){
         return commomRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Commom User not Found"));

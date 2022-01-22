@@ -24,6 +24,11 @@ public class ProviderController {
         return new ResponseEntity<>(providerService.listAll(), HttpStatus.OK);
     }
 
+    @GetMapping
+    public ResponseEntity<List<Provider>> findByName(@RequestParam String name){
+        return ResponseEntity.ok(providerService.findByName(name));
+    }
+
     @GetMapping(path = "/{id}")
     public ResponseEntity<Provider> FindById(@PathVariable Long id){
         return ResponseEntity.ok(providerService.findById(id));
