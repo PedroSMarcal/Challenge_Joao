@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -36,7 +37,7 @@ public class AdminController {
     }
 
     @PostMapping
-    public ResponseEntity<Admin> addAdmin(@RequestBody AdminPostRequestBody adminPostRequestBody){
+    public ResponseEntity<Admin> addAdmin(@RequestBody @Valid AdminPostRequestBody adminPostRequestBody){
         return new ResponseEntity<>(adminService.addAdmin(adminPostRequestBody), HttpStatus.CREATED);
     }
 
@@ -47,7 +48,7 @@ public class AdminController {
     }
 
     @PutMapping
-    public ResponseEntity<Void> replaceAdmin(@RequestBody AdminPutRequestBody adminPutRequestBody){
+    public ResponseEntity<Void> replaceAdmin(@RequestBody @Valid AdminPutRequestBody adminPutRequestBody){
         adminService.replaceAdmin(adminPutRequestBody);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }

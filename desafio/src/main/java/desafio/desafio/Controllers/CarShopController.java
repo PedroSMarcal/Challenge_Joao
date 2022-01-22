@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -30,7 +31,7 @@ public class CarShopController {
     };
 
     @PostMapping
-    public ResponseEntity<CarShop> AddCarShop(@RequestBody CarShopPostRequestBody carShopPostRequestBody){
+    public ResponseEntity<CarShop> AddCarShop(@RequestBody @Valid CarShopPostRequestBody carShopPostRequestBody){
         return new ResponseEntity<>(carShopService.addCarShop(carShopPostRequestBody), HttpStatus.CREATED);
     }
 
@@ -41,7 +42,7 @@ public class CarShopController {
     }
 
     @PutMapping
-    public ResponseEntity<Void> ReplaceCarShop(@RequestBody CarShopPutRequestBody carShopPutRequestBody){
+    public ResponseEntity<Void> ReplaceCarShop(@RequestBody @Valid CarShopPutRequestBody carShopPutRequestBody){
         carShopService.replaceCarShop(carShopPutRequestBody);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }

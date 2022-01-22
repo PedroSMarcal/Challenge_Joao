@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -35,7 +36,7 @@ public class ProductsController {
     };
 
     @PostMapping
-    public ResponseEntity<Products> addCategory(@RequestBody ProductsPostRequestBody productsPostRequestBody){
+    public ResponseEntity<Products> addCategory(@RequestBody @Valid ProductsPostRequestBody productsPostRequestBody){
         return new ResponseEntity<>(productsService.addProducts(productsPostRequestBody), HttpStatus.CREATED);
     }
 
@@ -46,7 +47,7 @@ public class ProductsController {
     }
 
     @PutMapping
-    public ResponseEntity<Void> replaceCategory(@RequestBody ProductsPutRequestBody productsPutRequestBody){
+    public ResponseEntity<Void> replaceCategory(@RequestBody @Valid ProductsPutRequestBody productsPutRequestBody){
         productsService.replaceProducts(productsPutRequestBody);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }

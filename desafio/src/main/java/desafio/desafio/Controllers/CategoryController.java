@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -35,18 +36,18 @@ public class CategoryController {
     };
 
     @PostMapping
-    public ResponseEntity<Category> addCategory(@RequestBody CategoryPostRequestBody categoryPostRequestBody){
+    public ResponseEntity<Category> addCategory(@RequestBody @Valid CategoryPostRequestBody categoryPostRequestBody){
         return new ResponseEntity<>(categoryService.addCategory(categoryPostRequestBody), HttpStatus.CREATED);
     }
 
     @DeleteMapping(path = "/{id}")
-    public ResponseEntity<Void> deleteCategory(@PathVariable Long id){
+    public ResponseEntity<Void> deleteCategory(@PathVariable  Long id){
         categoryService.deleteCategory(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @PutMapping
-    public ResponseEntity<Void> replaceCategory(@RequestBody CategoryPutRequestBody categoryPutRequestBody){
+    public ResponseEntity<Void> replaceCategory(@RequestBody @Valid CategoryPutRequestBody categoryPutRequestBody){
         categoryService.replaceCategory(categoryPutRequestBody);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }

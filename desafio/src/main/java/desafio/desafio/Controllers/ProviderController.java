@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -25,7 +26,7 @@ public class ProviderController {
     }
 
     @GetMapping(path = "/")
-    public ResponseEntity<List<Provider>> FindByName(@RequestParam(required = false) String name){
+    public ResponseEntity<List<Provider>> FindByName(@RequestParam(required = false)  String name){
         return ResponseEntity.ok(providerService.findByName(name));
     }
 
@@ -35,7 +36,7 @@ public class ProviderController {
     }
 
     @PostMapping
-    public ResponseEntity<Provider> addProvider(@RequestBody ProviderPostRequestBody providerPostRequestBody){
+    public ResponseEntity<Provider> addProvider(@RequestBody @Valid ProviderPostRequestBody providerPostRequestBody){
         return new ResponseEntity<>(providerService.addProvider(providerPostRequestBody), HttpStatus.CREATED);
     }
 
@@ -46,7 +47,7 @@ public class ProviderController {
     }
 
     @PutMapping
-    public ResponseEntity<Void> replaceProvider(@RequestBody ProviderPutRequestBody providerPutRequestBody){
+    public ResponseEntity<Void> replaceProvider(@RequestBody @Valid ProviderPutRequestBody providerPutRequestBody){
         providerService.replaceProvider(providerPutRequestBody);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }

@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -35,7 +36,7 @@ public class CommomController {
     };
 
     @PostMapping
-    public ResponseEntity<Commom> addCommomUser(@RequestBody CommomPostRequestBody commomPostRequestBody){
+    public ResponseEntity<Commom> addCommomUser(@RequestBody @Valid CommomPostRequestBody commomPostRequestBody){
         return new ResponseEntity<>(commomService.addCommomUser(commomPostRequestBody), HttpStatus.CREATED);
     }
 
@@ -46,7 +47,7 @@ public class CommomController {
     }
 
     @PutMapping
-    public ResponseEntity<Void> replaceCommomUser(@RequestBody CommomPutRequestBody commomPutRequestBody){
+    public ResponseEntity<Void> replaceCommomUser(@RequestBody @Valid CommomPutRequestBody commomPutRequestBody){
         commomService.replaceCommomUser(commomPutRequestBody);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
