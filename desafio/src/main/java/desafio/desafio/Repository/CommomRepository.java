@@ -8,5 +8,6 @@ import java.util.List;
 
 @Repository
 public interface CommomRepository extends JpaRepository<Commom, Long> {
+
     List<Commom> findByName(String name);
 }

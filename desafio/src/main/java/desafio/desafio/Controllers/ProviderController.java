@@ -24,8 +24,8 @@ public class ProviderController {
         return new ResponseEntity<>(providerService.listAll(), HttpStatus.OK);
     }
 
-    @GetMapping
-    public ResponseEntity<List<Provider>> findByName(@RequestParam String name){
+    @GetMapping(path = "/")
+    public ResponseEntity<List<Provider>> FindByName(@RequestParam(required = false) String name){
         return ResponseEntity.ok(providerService.findByName(name));
     }
 

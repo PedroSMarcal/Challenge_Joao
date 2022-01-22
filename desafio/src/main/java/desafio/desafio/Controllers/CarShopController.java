@@ -24,29 +24,24 @@ public class CarShopController {
         return new ResponseEntity(carShopService.listAll(), HttpStatus.OK);
     }
 
-    @GetMapping
-    public ResponseEntity<List<CarShop>> findByName(@RequestParam String name){
-        return ResponseEntity.ok(carShopService.findByName(name));
-    }
-
     @GetMapping(path = "/{id}")
     public ResponseEntity<CarShop> FindById(@PathVariable Long id){
         return ResponseEntity.ok(carShopService.findById(id));
     };
 
     @PostMapping
-    public ResponseEntity<CarShop> addCarShop(@RequestBody CarShopPostRequestBody carShopPostRequestBody){
+    public ResponseEntity<CarShop> AddCarShop(@RequestBody CarShopPostRequestBody carShopPostRequestBody){
         return new ResponseEntity<>(carShopService.addCarShop(carShopPostRequestBody), HttpStatus.CREATED);
     }
 
     @DeleteMapping(path = "/{id}")
-    public ResponseEntity<Void> deleteCarShop(@PathVariable Long id){
+    public ResponseEntity<Void> DeleteCarShop(@PathVariable Long id){
         carShopService.deleteCarShop(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @PutMapping
-    public ResponseEntity<Void> replaceCarShop(@RequestBody CarShopPutRequestBody carShopPutRequestBody){
+    public ResponseEntity<Void> ReplaceCarShop(@RequestBody CarShopPutRequestBody carShopPutRequestBody){
         carShopService.replaceCarShop(carShopPutRequestBody);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }

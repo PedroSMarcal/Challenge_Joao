@@ -24,8 +24,8 @@ public class ProductsController {
         return new ResponseEntity(productsService.listAll(), HttpStatus.OK);
     }
 
-    @GetMapping
-    public ResponseEntity<List<Products>> findById(@RequestParam String name){
+    @GetMapping(path = "/")
+    public ResponseEntity<List<Products>> FindByName(@RequestParam(required = false) String name){
         return ResponseEntity.ok(productsService.findByName(name));
     }
 

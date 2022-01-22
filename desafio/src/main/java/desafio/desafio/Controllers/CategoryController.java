@@ -24,8 +24,8 @@ public class CategoryController {
         return new ResponseEntity(categoryService.listAll(), HttpStatus.OK);
     }
 
-    @GetMapping
-    public ResponseEntity<List<Category>> findByName(@RequestParam String name){
+    @GetMapping(path = "/")
+    public ResponseEntity<List<Category>> FindByName(@RequestParam(required = false) String name){
         return ResponseEntity.ok(categoryService.findByName(name));
     }
 

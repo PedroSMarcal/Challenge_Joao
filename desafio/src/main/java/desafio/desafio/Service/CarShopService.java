@@ -21,10 +21,6 @@ public class CarShopService {
         return carShopRepository.findAll();
     }
 
-    public List<CarShop> findByName(String name){
-        return carShopRepository.findByName(name);
-    }
-
     public CarShop findById(Long id){
         return carShopRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Category not Found"));
@@ -44,4 +40,5 @@ public class CarShopService {
         CarShop carShop = CarShopMapper.INSTANCE.toCarShop(carShopPutRequestBody);
         savedCarShop.setCarShopId(carShop.getCarShopId());
     }
+
 }
