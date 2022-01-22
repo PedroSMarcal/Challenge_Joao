@@ -7,9 +7,9 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @AllArgsConstructor
-@Table(name = "CarShop")
 @Entity
 @NoArgsConstructor
+@Table(name = "CarShop")
 public class CarShop implements Serializable {
     public static final long serialVersionUID = -813460447973672321L;
 
@@ -20,4 +20,10 @@ public class CarShop implements Serializable {
     private Float totalValue;
     @Column(name="pay")
     private Boolean pay;
+
+    @ManyToOne
+    @JoinColumn(name = "productId")
+    private Products products;
 }
+
+

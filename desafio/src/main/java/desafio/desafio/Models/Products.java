@@ -17,18 +17,28 @@ public class Products implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer productId;
+
     @Column(name="color")
     private String color;
+
     @Column(name="name")
     private String name;
+
     @Column(name="addDate")
     private Date addDate;
+
     @Column(name="price")
     private Float price;
-    @Column(name="adminId")
+
+    @ManyToOne
+    @JoinColumn(name = "adminId")
     private Admin adminId;
-    @Column(name="categoryId")
+
+    @ManyToOne
+    @JoinColumn(name = "categoryId")
     private Category categoryId;
-    @Column(name="providerId")
+
+    @ManyToOne
+    @JoinColumn(name = "providerId")
     private Provider providerId;
 }

@@ -15,8 +15,8 @@ public class Commom extends TypeUser implements Serializable {
 
     private Float credit;
 
-    public Commom(Integer id, Boolean active, String name, String email, String password) {
-        super(id, active, name, email, password);
+    public Commom(Integer CommomId, Boolean active, String name, String email, String password) {
+        super(CommomId, active, name, email, password);
     }
 
     public void setCredit(Float credit) {

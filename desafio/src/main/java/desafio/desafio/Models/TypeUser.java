@@ -11,10 +11,8 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @Table(name = "Users")
-@Entity
 @NoArgsConstructor
 @MappedSuperclass
-
 public abstract class TypeUser implements Serializable {
     public static final long serialVersionUID = -3771610476038939806L;
 

@@ -2,6 +2,7 @@ package desafio.desafio.Service;
 
 import desafio.desafio.Models.Admin;
 import desafio.desafio.Repository.AdminRepository;
+import desafio.desafio.mapper.AdminMapper;
 import desafio.desafio.requests.AdminPostRequestBody;
 import desafio.desafio.requests.AdminPutRequestBody;
 import lombok.RequiredArgsConstructor;
@@ -29,23 +30,18 @@ public class AdminService {
 
     }
 
-    public Admin addAdmin(Admin admin){
-            adminRepository.save(admin);
-            return admin;
+    public Admin addAdmin(AdminPostRequestBody adminPostRequestBody){
+        return adminRepository.save(AdminMapper.INSTANCE.toAdmin(adminPostRequestBody));
     }
 
-    public void deleteAdmin(long id){
+    public void deleteAdmin(int id){
         adminRepository.delete(findById(id));
     }
 
-    public ResponseEntity<Admin> replaceAdmin(Admin admin){
-        Optional<Admin> IdValuate = adminRepository.findById(admin.getId());
-        if (!IdValuate.isPresent()){
-            return null;
-        }
-        adminRepository.save(admin);
-        return ResponseEntity.ok(admin);
-
+    public void replaceAdmin(AdminPutRequestBody adminPutRequestBody){
+        Admin savedAdmin = findById(adminPutRequestBody.getId());
+        Admin admin = AdminMapper.INSTANCE.toAdmin(adminPutRequestBody);
+        admin.setId(savedAdmin.getId());
     }
 
 }

@@ -11,8 +11,6 @@ import java.io.Serializable;
 
 @Data
 @NoArgsConstructor
-@MappedSuperclass
-@Builder
 @Table(name = "Admin")
 @Entity
 public class Admin extends TypeUser implements Serializable {
@@ -20,8 +18,8 @@ public class Admin extends TypeUser implements Serializable {
 
     private Boolean admin;
 
-    public Admin(Integer id, Boolean active, String name, String email, String password) {
-        super(id, active, name, email, password);
+    public Admin(Integer adminId, Boolean active, String name, String email, String password) {
+        super(adminId, active, name, email, password);
     }
 
 }

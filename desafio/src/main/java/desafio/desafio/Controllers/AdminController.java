@@ -4,6 +4,7 @@ import desafio.desafio.Models.Admin;
 import desafio.desafio.Service.AdminService;
 import desafio.desafio.requests.AdminPostRequestBody;
 import desafio.desafio.requests.AdminPutRequestBody;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,7 +20,6 @@ public class AdminController {
     @Autowired
     private final AdminService adminService;
 
-
     @GetMapping
     public ResponseEntity<List<Admin>>listAll(){
         return new ResponseEntity<>(adminService.listAll(), HttpStatus.OK);
@@ -31,8 +31,8 @@ public class AdminController {
     }
 
     @PostMapping
-    public ResponseEntity<Admin> addAdmin(@RequestBody Admin admin){
-        return new ResponseEntity<>(adminService.addAdmin(admin), HttpStatus.CREATED);
+    public ResponseEntity<Admin> addAdmin(@RequestBody AdminPostRequestBody adminPostRequestBody){
+        return new ResponseEntity<>(adminService.addAdmin(adminPostRequestBody), HttpStatus.CREATED);
     }
 
     @DeleteMapping(path = "/{id}")
@@ -42,8 +42,8 @@ public class AdminController {
     }
 
     @PutMapping
-    public ResponseEntity<Void> replaceAdmin(@RequestBody Admin admin){
-        adminService.replaceAdmin(admin);
+    public ResponseEntity<Void> replaceAdmin(@RequestBody AdminPutRequestBody adminPutRequestBody){
+        adminService.replaceAdmin(adminPutRequestBody);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
