@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.ThreadLocalRandom;
@@ -31,6 +32,7 @@ public class AdminService {
 
     }
 
+    @Transactional
     public Admin addAdmin(AdminPostRequestBody adminPostRequestBody){
         return adminRepository.save(AdminMapper.INSTANCE.toAdmin(adminPostRequestBody));
     }
