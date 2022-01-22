@@ -1,5 +1,6 @@
 package desafio.desafio.Service;
 
+import desafio.desafio.Exception.BadRequestException;
 import desafio.desafio.Models.Provider;
 import desafio.desafio.Repository.ProviderRepository;
 import desafio.desafio.mapper.ProviderMapper;
@@ -27,7 +28,7 @@ public class ProviderService {
 
     public Provider findById(Long id){
         return providerRepository.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Provider not Found"));
+                .orElseThrow(() -> new BadRequestException("Provider not Found"));
 
     }
 

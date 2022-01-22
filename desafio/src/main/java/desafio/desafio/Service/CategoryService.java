@@ -1,5 +1,6 @@
 package desafio.desafio.Service;
 
+import desafio.desafio.Exception.BadRequestException;
 import desafio.desafio.Models.Category;
 import desafio.desafio.Repository.CategoryRepository;
 import desafio.desafio.mapper.CategoryMapper;
@@ -27,7 +28,7 @@ public class CategoryService {
 
     public Category findById(Long id){
         return categoryRepository.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Category not Found"));
+                .orElseThrow(() -> new BadRequestException("Category not Found"));
 
     }
 

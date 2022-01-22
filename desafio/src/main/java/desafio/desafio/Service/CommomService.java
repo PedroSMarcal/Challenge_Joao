@@ -1,5 +1,6 @@
 package desafio.desafio.Service;
 
+import desafio.desafio.Exception.BadRequestException;
 import desafio.desafio.Models.Commom;
 import desafio.desafio.Repository.CommomRepository;
 import desafio.desafio.mapper.CommomMapper;
@@ -27,7 +28,7 @@ public class CommomService {
 
     public Commom findById(Long id){
         return commomRepository.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Commom User not Found"));
+                .orElseThrow(() -> new BadRequestException("Commom User not Found"));
 
     }
 

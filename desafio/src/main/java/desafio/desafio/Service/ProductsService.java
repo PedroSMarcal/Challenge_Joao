@@ -1,5 +1,6 @@
 package desafio.desafio.Service;
 
+import desafio.desafio.Exception.BadRequestException;
 import desafio.desafio.Models.Products;
 import desafio.desafio.Repository.ProductsRepository;
 import desafio.desafio.mapper.ProductsMapper;
@@ -28,7 +29,7 @@ public class ProductsService {
 
     public Products findById(Long id){
         return productsRepository.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Commom User not Found"));
+                .orElseThrow(() -> new BadRequestException("Commom User not Found"));
 
     }
 

@@ -1,5 +1,6 @@
 package desafio.desafio.Service;
 
+import desafio.desafio.Exception.BadRequestException;
 import desafio.desafio.Models.CarShop;
 import desafio.desafio.Repository.CarShopRepository;
 import desafio.desafio.mapper.CarShopMapper;
@@ -23,7 +24,7 @@ public class CarShopService {
 
     public CarShop findById(Long id){
         return carShopRepository.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Category not Found"));
+                .orElseThrow(() -> new BadRequestException("Category not Found"));
 
     }
 

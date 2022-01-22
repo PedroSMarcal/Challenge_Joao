@@ -1,5 +1,6 @@
 package desafio.desafio.Service;
 
+import desafio.desafio.Exception.BadRequestException;
 import desafio.desafio.Models.Admin;
 import desafio.desafio.Repository.AdminRepository;
 import desafio.desafio.mapper.AdminMapper;
@@ -26,7 +27,7 @@ public class AdminService {
 
     public Admin findById(Long id){
         return adminRepository.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Admin not Found"));
+                .orElseThrow(() -> new BadRequestException( "Admin not Found"));
 
     }
 
