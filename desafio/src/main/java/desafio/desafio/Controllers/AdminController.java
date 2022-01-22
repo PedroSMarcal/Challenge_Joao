@@ -26,7 +26,7 @@ public class AdminController {
     }
 
     @GetMapping(path = "/{id}")
-    public ResponseEntity<Admin> FindById(@PathVariable long id){
+    public ResponseEntity<Admin> FindById(@PathVariable Long id){
         return ResponseEntity.ok(adminService.findById(id));
     }
 
@@ -36,7 +36,7 @@ public class AdminController {
     }
 
     @DeleteMapping(path = "/{id}")
-    public ResponseEntity<Void> deleteAdmin(@PathVariable int id){
+    public ResponseEntity<Void> deleteAdmin(@PathVariable Long id){
         adminService.deleteAdmin(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }

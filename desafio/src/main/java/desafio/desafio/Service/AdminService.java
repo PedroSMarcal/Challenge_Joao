@@ -24,7 +24,7 @@ public class AdminService {
         return adminRepository.findAll();
     }
 
-    public Admin findById(long id){
+    public Admin findById(Long id){
         return adminRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Admin not Found"));
 
@@ -34,12 +34,12 @@ public class AdminService {
         return adminRepository.save(AdminMapper.INSTANCE.toAdmin(adminPostRequestBody));
     }
 
-    public void deleteAdmin(int id){
+    public void deleteAdmin(Long id){
         adminRepository.delete(findById(id));
     }
 
     public void replaceAdmin(AdminPutRequestBody adminPutRequestBody){
-        Admin savedAdmin = findById(adminPutRequestBody.getId());
+        Admin savedAdmin = findById(adminPutRequestBody.getAdminId());
         Admin admin = AdminMapper.INSTANCE.toAdmin(adminPutRequestBody);
         admin.setId(savedAdmin.getId());
     }

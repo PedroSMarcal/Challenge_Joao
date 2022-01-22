@@ -18,7 +18,7 @@ public abstract class TypeUser implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected Integer id;
+    protected Long id;
     @Column(name="active")
     private Boolean active;
     @Column(name="name")

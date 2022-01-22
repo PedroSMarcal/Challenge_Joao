@@ -4,7 +4,8 @@ import lombok.Data;
 
 @Data
 public class AdminPutRequestBody {
-    private Long id;
+    private Long adminId;
+    private Boolean active;
     private String name;
     private String email;
     private String password;

@@ -15,7 +15,7 @@ public class CarShop implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer comomId;
+    private Long comomId;
     @Column(name="totalValues")
     private Float totalValue;
     @Column(name="pay")

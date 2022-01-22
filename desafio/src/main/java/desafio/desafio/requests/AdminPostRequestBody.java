@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AdminPostRequestBody {
+    private Boolean active;
     private String name;
     private String email;
     private String password;
