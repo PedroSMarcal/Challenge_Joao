@@ -1,6 +1,7 @@
 package desafio.desafio.Models;
 
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -8,6 +9,8 @@ import java.util.Date;
 
 @Table(name = "Products")
 @AllArgsConstructor
+@Entity
+@NoArgsConstructor
 public class Products implements Serializable {
     private static final long serialVersionUID = 3051278784539369028L;
 

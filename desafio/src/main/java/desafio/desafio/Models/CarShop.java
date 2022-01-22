@@ -1,12 +1,15 @@
 package desafio.desafio.Models;
 
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @AllArgsConstructor
 @Table(name = "CarShop")
+@Entity
+@NoArgsConstructor
 public class CarShop implements Serializable {
     public static final long serialVersionUID = -813460447973672321L;
 

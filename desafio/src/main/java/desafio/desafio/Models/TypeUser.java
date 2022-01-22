@@ -1,7 +1,9 @@
 package desafio.desafio.Models;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -9,10 +11,15 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @Table(name = "Users")
-public class TypeUser implements Serializable {
+@Entity
+@NoArgsConstructor
+@MappedSuperclass
+
+public abstract class TypeUser implements Serializable {
     public static final long serialVersionUID = -3771610476038939806L;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Integer id;
     @Column(name="active")
     private Boolean active;

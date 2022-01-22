@@ -2,11 +2,14 @@ package desafio.desafio.Models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Table(name = "Commom")
+@Entity
+@NoArgsConstructor
 public class Commom extends TypeUser implements Serializable {
     public static final long serialVersionUID = -8506743393846541263L;
 

@@ -1,44 +1,49 @@
 package desafio.desafio.Controllers;
 
 import desafio.desafio.Models.Admin;
-import desafio.desafio.Models.TypeUser;
-import desafio.desafio.Repository.AdminRepository;
+import desafio.desafio.Service.AdminService;
+import desafio.desafio.requests.AdminPostRequestBody;
+import desafio.desafio.requests.AdminPutRequestBody;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("admin")
+@RequiredArgsConstructor
 public class AdminController {
     @Autowired
-    private final AdminRepository adminRepository;
+    private final AdminService adminService;
 
-    public AdminController(AdminRepository adminRepository) {
-        this.adminRepository = adminRepository;
-    }
 
     @GetMapping
     public ResponseEntity<List<Admin>>listAll(){
-        return new ResponseEntity<>(adminRepository.listAll(), HttpStatus.OK);
+        return new ResponseEntity<>(adminService.listAll(), HttpStatus.OK);
     }
 
     @GetMapping(path = "/{id}")
-    public ResponseEntity<Admin> FindById(@PathVariable int id){
-        return adminRepository.getById(id);
+    public ResponseEntity<Admin> FindById(@PathVariable long id){
+        return ResponseEntity.ok(adminService.findById(id));
     }
 
     @PostMapping
     public ResponseEntity<Admin> addAdmin(@RequestBody Admin admin){
-        return ResponseEntity.ok(adminRepository.addAdmin(admin));
+        return new ResponseEntity<>(adminService.addAdmin(admin), HttpStatus.CREATED);
     }
 
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<Void> deleteAdmin(@PathVariable int id){
-        adminRepository.deleteAdmin(id)
+        adminService.deleteAdmin(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @PutMapping
+    public ResponseEntity<Void> replaceAdmin(@RequestBody Admin admin){
+        adminService.replaceAdmin(admin);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
