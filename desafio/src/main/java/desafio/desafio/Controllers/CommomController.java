@@ -25,7 +25,7 @@ public class CommomController {
         return new ResponseEntity(commomService.listAll(), HttpStatus.OK);
     }
 
-    @GetMapping(path = "/")
+    @GetMapping(path = "/{name}")
     public ResponseEntity<List<Commom>> FindByName(@RequestParam(required = false) String name){
         return ResponseEntity.ok(commomService.findByName(name));
     }
