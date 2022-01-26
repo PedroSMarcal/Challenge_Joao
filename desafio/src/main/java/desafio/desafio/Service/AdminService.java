@@ -7,15 +7,11 @@ import desafio.desafio.mapper.AdminMapper;
 import desafio.desafio.requests.AdminPostRequestBody;
 import desafio.desafio.requests.AdminPutRequestBody;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
-import java.util.concurrent.ThreadLocalRandom;
 
 @Service
 @RequiredArgsConstructor
@@ -38,7 +34,11 @@ public class AdminService {
     }
 
     public void deleteAdmin(Long id){
-        adminRepository.delete(findById(id));
+        Optional<Admin> admin = adminRepository.findById(id);
+        Admin adminToChange = adminRepository.getById(id);
+        if (admin.isPresent()){
+            adminToChange.setActive(false);
+        }
     }
 
     public void replaceAdmin(AdminPutRequestBody adminPutRequestBody){
