@@ -25,7 +25,6 @@ public class AdminPostRequestBody {
     @NotEmpty(message = "The admin need to have a password")
     private String password;
 
-
     private Boolean admin;
 
 }
