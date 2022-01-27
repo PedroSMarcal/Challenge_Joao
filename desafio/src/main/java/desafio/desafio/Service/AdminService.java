@@ -24,6 +24,10 @@ public class AdminService {
         return adminRepository.findAll(pageable);
     }
 
+    public List<Admin> listAllNonPageable() {
+        return adminRepository.findAll();
+    }
+
     public Admin findById(Long id){
         return adminRepository.findById(id)
                 .orElseThrow(() -> new BadRequestException( "Admin not Found"));
@@ -52,5 +56,4 @@ public class AdminService {
     public List<Admin> findByName(String name){
         return adminRepository.findByName(name);
     }
-
 }

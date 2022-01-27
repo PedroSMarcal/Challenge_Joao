@@ -6,6 +6,8 @@ import desafio.desafio.requests.CategoryPostRequestBody;
 import desafio.desafio.requests.CategoryPutRequestBody;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,8 +23,8 @@ public class CategoryController {
     private CategoryService categoryService;
 
     @GetMapping
-    public ResponseEntity<List<Category>> listAll(){
-        return new ResponseEntity(categoryService.listAll(), HttpStatus.OK);
+    public ResponseEntity<Page<Category>> listAll(Pageable pageable){
+        return new ResponseEntity(categoryService.listAll(pageable), HttpStatus.OK);
     }
 
     @GetMapping(path = "/{name}")

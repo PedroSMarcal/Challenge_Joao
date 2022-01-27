@@ -6,6 +6,8 @@ import desafio.desafio.requests.CommomPostRequestBody;
 import desafio.desafio.requests.CommomPutRequestBody;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,8 +23,8 @@ public class CommomController {
     private CommomService commomService;
 
     @GetMapping
-    public ResponseEntity<List<Commom>> listAll(){
-        return new ResponseEntity(commomService.listAll(), HttpStatus.OK);
+    public ResponseEntity<Page<Commom>> listAll(Pageable pageable){
+        return new ResponseEntity(commomService.listAll(pageable), HttpStatus.OK);
     }
 
     @GetMapping(path = "/{name}")

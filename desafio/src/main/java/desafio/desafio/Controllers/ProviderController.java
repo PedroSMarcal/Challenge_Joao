@@ -6,6 +6,8 @@ import desafio.desafio.requests.ProviderPostRequestBody;
 import desafio.desafio.requests.ProviderPutRequestBody;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,8 +23,8 @@ public class ProviderController {
     private final ProviderService providerService;
 
     @GetMapping
-    public ResponseEntity<List<Provider>> listAll(){
-        return new ResponseEntity<>(providerService.listAll(), HttpStatus.OK);
+    public ResponseEntity<Page<Provider>> listAll(Pageable pageable){
+        return new ResponseEntity<>(providerService.listAll(pageable), HttpStatus.OK);
     }
 
     @GetMapping(path = "/{name}")

@@ -7,6 +7,8 @@ import desafio.desafio.mapper.ProviderMapper;
 import desafio.desafio.requests.ProviderPostRequestBody;
 import desafio.desafio.requests.ProviderPutRequestBody;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -18,8 +20,8 @@ import java.util.List;
 public class ProviderService {
     private final ProviderRepository providerRepository;
 
-    public List<Provider> listAll(){
-        return providerRepository.findAll();
+    public Page<Provider> listAll(Pageable pageable){
+        return providerRepository.findAll(pageable);
     }
 
     public List<Provider> findByName(String name){

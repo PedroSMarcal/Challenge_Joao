@@ -7,6 +7,8 @@ import desafio.desafio.mapper.ProductsMapper;
 import desafio.desafio.requests.ProductsPostRequestBody;
 import desafio.desafio.requests.ProductsPutRequestBody;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -19,8 +21,8 @@ import java.util.List;
 public class ProductsService {
     private final ProductsRepository productsRepository;
 
-    public List<Products> listAll(){
-        return productsRepository.findAll();
+    public Page<Products> listAll(Pageable pageable){
+        return productsRepository.findAll(pageable);
     }
 
     public List<Products> findByName(String name){

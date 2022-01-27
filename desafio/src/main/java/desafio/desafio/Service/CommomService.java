@@ -7,6 +7,8 @@ import desafio.desafio.mapper.CommomMapper;
 import desafio.desafio.requests.CommomPostRequestBody;
 import desafio.desafio.requests.CommomPutRequestBody;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -18,8 +20,8 @@ import java.util.List;
 public class CommomService {
     private final CommomRepository commomRepository;
 
-    public List<Commom> listAll(){
-        return commomRepository.findAll();
+    public Page<Commom> listAll(Pageable pageable){
+        return commomRepository.findAll(pageable);
     }
 
     public List<Commom> findByName(String name){

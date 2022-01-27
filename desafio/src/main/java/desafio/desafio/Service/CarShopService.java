@@ -7,6 +7,8 @@ import desafio.desafio.mapper.CarShopMapper;
 import desafio.desafio.requests.CarShopPostRequestBody;
 import desafio.desafio.requests.CarShopPutRequestBody;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -18,8 +20,8 @@ import java.util.List;
 public class CarShopService {
     private final CarShopRepository carShopRepository;
 
-    public List<CarShop> listAll(){
-        return carShopRepository.findAll();
+    public Page<CarShop> listAll(Pageable pageable){
+        return carShopRepository.findAll(pageable);
     }
 
     public CarShop findById(Long id){

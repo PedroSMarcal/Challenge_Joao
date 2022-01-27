@@ -24,22 +24,28 @@ public class AdminController {
     private final AdminService adminService;
 
     @GetMapping
-    public ResponseEntity<Page<Admin>>listAll(Pageable pageable){
+    public ResponseEntity<Page<Admin>>list(Pageable pageable){
         return ResponseEntity.ok(adminService.listAll(pageable));
     }
+
+    @GetMapping(path = "/all")
+    public ResponseEntity<List<Admin>>listAll(){
+        return ResponseEntity.ok(adminService.listAllNonPageable());
+    }
+
 
     @GetMapping(path = "/{id}")
     public ResponseEntity<Admin> FindById(@PathVariable Long id){
         return ResponseEntity.ok(adminService.findById(id));
     }
 
-    @GetMapping(path = "/{name}")
+    @GetMapping(path = "/getName/{name}")
     public ResponseEntity<List<Admin>> FindByName(@RequestParam(required = false) String name){
         return ResponseEntity.ok(adminService.findByName(name));
     }
 
     @PostMapping
-    public ResponseEntity<Admin> addAdmin(@RequestBody @Valid AdminPostRequestBody adminPostRequestBody){
+    public ResponseEntity<Admin> addAdmin(@RequestBody AdminPostRequestBody adminPostRequestBody){
         return new ResponseEntity<>(adminService.addAdmin(adminPostRequestBody), HttpStatus.CREATED);
     }
 

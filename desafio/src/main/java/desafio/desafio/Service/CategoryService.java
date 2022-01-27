@@ -7,6 +7,8 @@ import desafio.desafio.mapper.CategoryMapper;
 import desafio.desafio.requests.CategoryPostRequestBody;
 import desafio.desafio.requests.CategoryPutRequestBody;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -18,8 +20,8 @@ import java.util.List;
 public class CategoryService {
     private final CategoryRepository categoryRepository;
 
-    public List<Category> listAll(){
-        return categoryRepository.findAll();
+    public Page<Category> listAll(Pageable pageable){
+        return categoryRepository.findAll(pageable);
     }
 
     public List<Category> findByName(String name){
