@@ -7,6 +7,8 @@ import desafio.desafio.requests.AdminPutRequestBody;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,8 +24,8 @@ public class AdminController {
     private final AdminService adminService;
 
     @GetMapping
-    public ResponseEntity<List<Admin>>listAll(){
-        return new ResponseEntity<>(adminService.listAll(), HttpStatus.OK);
+    public ResponseEntity<Page<Admin>>listAll(Pageable pageable){
+        return ResponseEntity.ok(adminService.listAll(pageable));
     }
 
     @GetMapping(path = "/{id}")

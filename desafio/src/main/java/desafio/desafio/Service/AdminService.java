@@ -7,6 +7,8 @@ import desafio.desafio.mapper.AdminMapper;
 import desafio.desafio.requests.AdminPostRequestBody;
 import desafio.desafio.requests.AdminPutRequestBody;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -18,8 +20,8 @@ import java.util.Optional;
 public class AdminService {
     private final AdminRepository adminRepository;
 
-    public List<Admin> listAll(){
-        return adminRepository.findAll();
+    public Page<Admin> listAll(Pageable pageable){
+        return adminRepository.findAll(pageable);
     }
 
     public Admin findById(Long id){
