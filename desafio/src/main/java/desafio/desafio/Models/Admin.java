@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.annotation.Resource;
 import javax.persistence.Entity;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
@@ -23,3 +24,4 @@ public class Admin extends TypeUser implements Serializable {
     }
 
 }
+
