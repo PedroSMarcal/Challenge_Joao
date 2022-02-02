@@ -1,0 +1,27 @@
+# ADMIN
+{
+	"active": "false",
+  	"name": "Pedro",
+	"email": "pedro2@gmail.com", 
+	"password": "123456", 
+	"admin": "true"
+}
+
+# CATEGORY
+{
+  	"name": "Sapato",
+	"description": "Aqui temos sapatos"
+}
+
+# PROVIDER
+{
+	"name": "teste"
+}
+
+
+# CARSHOP
+{
+	"totalValue": "500",
+	"pay": "500",
+	"products": 1
+}

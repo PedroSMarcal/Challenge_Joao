@@ -36,7 +36,10 @@ public class AdminService {
 
     @Transactional
     public Admin addAdmin(AdminPostRequestBody adminPostRequestBody){
-        return adminRepository.save(AdminMapper.INSTANCE.toAdmin(adminPostRequestBody));
+        System.out.println(adminPostRequestBody);
+        System.out.println(adminRepository.save(AdminMapper.INSTANCE.toAdmin(adminPostRequestBody)));
+        return null;
+        // return adminRepository.save(AdminMapper.INSTANCE.toAdmin(adminPostRequestBody));
     }
 
     public void deleteAdmin(Long id){
