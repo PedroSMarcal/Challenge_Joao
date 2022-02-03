@@ -14,7 +14,7 @@ public class DesafioWebMvcConfigurer implements WebMvcConfigurer {
     @Override
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
         PageableHandlerMethodArgumentResolver pageHandler = new PageableHandlerMethodArgumentResolver();
-        pageHandler.setFallbackPageable(PageRequest.of(0, 10));
+        pageHandler.setFallbackPageable(PageRequest.of(0, 50));
         resolvers.add(pageHandler);
     }
 

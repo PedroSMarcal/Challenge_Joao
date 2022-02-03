@@ -36,10 +36,11 @@ public class AdminService {
 
     @Transactional
     public Admin addAdmin(AdminPostRequestBody adminPostRequestBody){
-        System.out.println(adminPostRequestBody);
-        System.out.println(adminRepository.save(AdminMapper.INSTANCE.toAdmin(adminPostRequestBody)));
-        return null;
-        // return adminRepository.save(AdminMapper.INSTANCE.toAdmin(adminPostRequestBody));
+        System.out.println(adminPostRequestBody + "Ok");
+        System.out.println(adminPostRequestBody.toString());
+        System.out.println(adminRepository.save(AdminMapper.INSTANCE.toAdminPost(adminPostRequestBody)));
+       // return null;
+        return adminRepository.save(AdminMapper.INSTANCE.toAdminPost(adminPostRequestBody));
     }
 
     public void deleteAdmin(Long id){
@@ -47,6 +48,7 @@ public class AdminService {
         Admin adminToChange = adminRepository.getById(id);
         if (admin.isPresent()){
             adminToChange.setActive(false);
+            adminRepository.save(adminToChange);
         }
     }
 

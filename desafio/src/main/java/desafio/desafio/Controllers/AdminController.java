@@ -45,7 +45,7 @@ public class AdminController {
     }
 
     @PostMapping
-    public ResponseEntity<Admin> addAdmin(@RequestBody AdminPostRequestBody adminPostRequestBody){
+    public ResponseEntity<Admin> addAdmin(@RequestBody @Valid AdminPostRequestBody adminPostRequestBody){
         System.out.println(adminPostRequestBody);
         return new ResponseEntity<>(adminService.addAdmin(adminPostRequestBody), HttpStatus.CREATED);
     }

@@ -10,7 +10,7 @@ import org.mapstruct.factory.Mappers;
 public abstract class AdminMapper {
     public static final AdminMapper INSTANCE = Mappers.getMapper(AdminMapper.class);
 
-    public abstract Admin toAdmin(AdminPostRequestBody adminPostRequestBody);
+    public abstract Admin toAdminPost(AdminPostRequestBody adminPostRequestBody);
 
     public abstract Admin toAdmin(AdminPutRequestBody adminPutRequestBody);
 }
