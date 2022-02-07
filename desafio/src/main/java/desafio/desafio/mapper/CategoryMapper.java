@@ -9,6 +9,6 @@ import org.mapstruct.factory.Mappers;
 @Mapper
 public abstract class CategoryMapper {
     public static final CategoryMapper INSTANCE = Mappers.getMapper(CategoryMapper.class);
-    public abstract Category toCategory(CategoryPostRequestBody providerPostRequestBody);
+    public abstract Category toPostCategory(CategoryPostRequestBody providerPostRequestBody);
     public abstract Category toCategory(CategoryPutRequestBody providerPutRequestBody);
 }

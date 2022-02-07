@@ -10,6 +10,6 @@ import org.mapstruct.factory.Mappers;
 @Mapper
 public abstract class CommomMapper {
     public static final CommomMapper INSTANCE = Mappers.getMapper(CommomMapper.class);
-    public abstract Commom toACommom(CommomPostRequestBody commomPostRequestBody);
+    public abstract Commom toPostCommom(CommomPostRequestBody commomPostRequestBody);
     public abstract Commom toACommom(CommomPutRequestBody commomPutRequestBody);
 }

@@ -35,7 +35,7 @@ public class CategoryService {
     }
 
     public Category addCategory(CategoryPostRequestBody categoryPostRequestBody){
-        return categoryRepository.save(CategoryMapper.INSTANCE.toCategory(categoryPostRequestBody));
+        return categoryRepository.save(CategoryMapper.INSTANCE.toPostCategory(categoryPostRequestBody));
     }
 
     public void deleteCategory(Long id){

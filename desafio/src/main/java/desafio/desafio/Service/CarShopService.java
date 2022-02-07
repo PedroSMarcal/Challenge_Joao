@@ -31,7 +31,7 @@ public class CarShopService {
     }
 
     public CarShop addCarShop(CarShopPostRequestBody carShopPostRequestBody){
-        return carShopRepository.save(CarShopMapper.INSTANCE.toCarShop(carShopPostRequestBody));
+        return carShopRepository.save(CarShopMapper.INSTANCE.toCarPostShop(carShopPostRequestBody));
     }
 
     public void deleteCarShop(Long id){

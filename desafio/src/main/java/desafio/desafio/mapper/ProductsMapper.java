@@ -9,6 +9,6 @@ import org.mapstruct.factory.Mappers;
 @Mapper
 public abstract class ProductsMapper {
     public static final ProductsMapper INSTANCE = Mappers.getMapper(ProductsMapper.class);
-    public abstract Products toProduct(ProductsPostRequestBody productsPostRequestBody);
+    public abstract Products toPostProduct(ProductsPostRequestBody productsPostRequestBody);
     public abstract Products toProduct(ProductsPutRequestBody productsPutRequestBody);
 }

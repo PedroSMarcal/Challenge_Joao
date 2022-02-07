@@ -35,7 +35,7 @@ public class ProviderService {
     }
 
     public Provider addProvider(ProviderPostRequestBody providerPostRequestBody){
-        return providerRepository.save(ProviderMapper.INSTANCE.toAProvider(providerPostRequestBody));
+        return providerRepository.save(ProviderMapper.INSTANCE.toPostProvider(providerPostRequestBody));
     }
 
     public void deleteProvider(Long id){

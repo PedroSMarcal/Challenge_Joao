@@ -9,7 +9,7 @@ import org.mapstruct.factory.Mappers;
 @Mapper
 public abstract class ProviderMapper {
     public static final ProviderMapper INSTANCE = Mappers.getMapper(ProviderMapper.class);
-    public abstract Provider toAProvider(ProviderPostRequestBody providerPostRequestBody);
+    public abstract Provider toPostProvider(ProviderPostRequestBody providerPostRequestBody);
 
     public abstract Provider toAProvider(ProviderPutRequestBody providerPutRequestBody);
 }

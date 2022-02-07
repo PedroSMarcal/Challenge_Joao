@@ -36,7 +36,7 @@ public class ProductsService {
     }
 
     public Products addProducts(ProductsPostRequestBody productsPostRequestBody){
-        return productsRepository.save(ProductsMapper.INSTANCE.toProduct(productsPostRequestBody));
+        return productsRepository.save(ProductsMapper.INSTANCE.toPostProduct(productsPostRequestBody));
     }
 
     public void deleteProducts(Long id){

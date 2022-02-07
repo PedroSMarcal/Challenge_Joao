@@ -35,7 +35,7 @@ public class CommomService {
     }
 
     public Commom addCommomUser(CommomPostRequestBody commomPostRequestBody){
-        return commomRepository.save(CommomMapper.INSTANCE.toACommom(commomPostRequestBody));
+        return commomRepository.save(CommomMapper.INSTANCE.toPostCommom(commomPostRequestBody));
     }
 
     public void deleteCommomUser(Long id){
