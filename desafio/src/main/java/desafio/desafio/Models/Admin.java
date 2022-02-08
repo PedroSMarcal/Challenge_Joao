@@ -1,12 +1,9 @@
 package desafio.desafio.Models;
 
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.annotation.Resource;
 import javax.persistence.Entity;
-import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 import java.io.Serializable;
 
@@ -22,6 +19,7 @@ public class Admin extends TypeUser implements Serializable {
     public Admin(long adminId, Boolean active, String name, String email, String password, Boolean admin) {
         super(adminId, active, name, email, password);
     }
+
 
 }
 

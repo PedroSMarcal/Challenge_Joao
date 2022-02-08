@@ -6,7 +6,7 @@ import desafio.desafio.requests.AdminPutRequestBody;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-@Mapper(componentModel="spring")
+@Mapper(componentModel = "spring")
 public abstract class AdminMapper {
     public static final AdminMapper INSTANCE = Mappers.getMapper(AdminMapper.class);
 

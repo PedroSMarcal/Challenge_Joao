@@ -16,7 +16,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("commom")
+    @RequestMapping("commom")
 @RequiredArgsConstructor
 public class CommomController {
     @Autowired
