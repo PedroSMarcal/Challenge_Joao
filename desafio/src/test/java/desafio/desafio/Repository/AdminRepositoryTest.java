@@ -2,12 +2,12 @@ package desafio.desafio.Repository;
 
 import desafio.desafio.Models.Admin;
 import org.assertj.core.api.Assertions;
+import org.hibernate.exception.ConstraintViolationException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
-import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
@@ -76,6 +76,18 @@ class AdminRepositoryTest {
         List<Admin> admins = adminRepository.findByName("name");
 
         Assertions.assertThat(admins).isEmpty();
+    }
+
+    @Test
+    @DisplayName("Save throw ConstraintValidationException when name is empty")
+    void save_ThrowsConstraintViolationException_WhenAdminIsEmpty(){
+        Admin admin = new Admin();
+        //Assertions.assertThatThrownBy(() -> this.adminRepository.save(admin))
+                //.isInstanceOf(ConstraintViolationException.class);
+
+        Assertions.assertThatExceptionOfType(ConstraintViolationException.class)
+                .isThrownBy(()-> this.adminRepository.save(admin))
+                .withMessageContaining("The admin admin could not be empty");
 
     }
 
