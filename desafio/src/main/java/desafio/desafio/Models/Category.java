@@ -1,6 +1,7 @@
 package desafio.desafio.Models;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,6 +13,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Builder
 public class Category implements Serializable {
     private static final long serialVersionUID = 7136541941448084259L;
 
